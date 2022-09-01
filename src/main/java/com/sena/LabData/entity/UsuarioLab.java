@@ -1,21 +1,26 @@
 package com.sena.LabData.entity;
 
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 @Entity
 @Table(name = "usuarios")
-public class UsuarioLab {
+public class UsuarioLab implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
+    @Column
     private String nombre;
 
     @Column
-
     private String apellido;
 
     @Column
@@ -26,7 +31,7 @@ public class UsuarioLab {
     private String movil;
 
     @Column
-    private String contrasena;
+    private String password;
 
     @Column
     private String correo;
@@ -35,27 +40,31 @@ public class UsuarioLab {
     private String tipoUsuario;
 
     @Column
-    private String usuario;
+    private String username;
 
 
-    public UsuarioLab(Integer id, String nombre, String apellido, String direccion, String movil, String contraseña, String correo, String tipoUsuario, String usuario) {
+    public UsuarioLab(Integer id,
+                      String nombre,
+                      String apellido,
+                      String direccion,
+                      String movil,
+                      String contraseña,
+                      String correo,
+                      String tipoUsuario,
+                      String username) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.movil = movil;
-        this.contrasena = contraseña;
+        this.password = contraseña;
         this.correo = correo;
         this.tipoUsuario = tipoUsuario;
-        this.usuario = usuario;
+        this.username = username;
     }
 
-    public UsuarioLab() {
+    public UsuarioLab()  {
     }
-
-    public UsuarioLab(String nombre, String apellido, String direccion, String movil, String contrasena, String correo, String tipoUsuario, String usuario) {
-    }
-
 
     public Integer getId() {
         return id;
@@ -97,12 +106,13 @@ public class UsuarioLab {
         this.movil = movil;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    @Override
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String Password) {
+        this.password = Password;
     }
 
     public String getCorreo() {
@@ -121,12 +131,40 @@ public class UsuarioLab {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getUsuario() {
-        return usuario;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String userName) {
+        this.username = userName;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> roles = new ArrayList<>();
+        roles.add(new Authority("ROLE_ADMIN"));
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }

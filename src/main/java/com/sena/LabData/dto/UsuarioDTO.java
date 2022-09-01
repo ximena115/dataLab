@@ -23,7 +23,7 @@ public class UsuarioDTO {
     private String movil;
 
 
-    private String contrasena;
+    private String password;
 
 
     private String correo;
@@ -32,7 +32,7 @@ public class UsuarioDTO {
     private String tipoUsuario;
 
 
-    private String Usuario;
+    private String username;
 
     private List<Caso> listaCasos;
 
@@ -77,12 +77,12 @@ public class UsuarioDTO {
         this.movil = movil;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCorreo() {
@@ -101,12 +101,12 @@ public class UsuarioDTO {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getUsuario() {
-        return Usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        Usuario = usuario;
+    public void setUsername(String username) {
+        this.username = this.username;
     }
 
     public void addCaso(Caso caso) {
