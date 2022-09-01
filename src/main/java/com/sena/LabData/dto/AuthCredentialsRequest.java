@@ -3,7 +3,7 @@ package com.sena.LabData.dto;
 public class AuthCredentialsRequest {
     private String username;
 
-    private String passsword;
+    private String password;
 
     public String getUsername() {
         return username;
@@ -14,10 +14,10 @@ public class AuthCredentialsRequest {
     }
 
     public String getPassword() {
-        return passsword;
+        return password;
     }
 
-    public void setPasssword(String passsword) {
-        this.passsword = passsword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
