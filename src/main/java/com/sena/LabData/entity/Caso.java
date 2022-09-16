@@ -33,9 +33,13 @@ public class Caso {
     @Column
     private Boolean antagonista;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private  UsuarioLab user;
 
 
-    public Caso(Integer id, String numeroOrden, String nombrePte, String idPte, Boolean registro, Boolean antagonista) {
+    public Caso(Integer id, String numeroOrden, String nombrePte, String idPte,
+                Boolean registro, Boolean antagonista, UsuarioLab user) {
         this.id = id;
         this.numeroOrden = numeroOrden;
         //this.fechaIngreso = fechaIngreso;
@@ -43,6 +47,7 @@ public class Caso {
         this.idPte = idPte;
         this.registro = registro;
         this.antagonista = antagonista;
+        this.user = user;
     }
 
     public Caso() {
@@ -105,4 +110,11 @@ public class Caso {
         this.antagonista = antagonista;
     }
 
+    public UsuarioLab getUser() {
+        return user;
+    }
+
+    public void setUser(UsuarioLab user) {
+        user = user;
+    }
 }

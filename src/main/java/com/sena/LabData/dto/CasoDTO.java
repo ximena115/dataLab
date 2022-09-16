@@ -1,6 +1,8 @@
 package com.sena.LabData.dto;
 
 
+import com.sena.LabData.entity.UsuarioLab;
+
 import java.util.Date;
 
 public class CasoDTO {
@@ -25,6 +27,8 @@ public class CasoDTO {
 
 
     private Boolean antagonista;
+
+    private UsuarioLab user;
 
     public Integer getId() {
         return id;
@@ -80,5 +84,13 @@ public class CasoDTO {
 
     public void setAntagonista(Boolean antagonista) {
         this.antagonista = antagonista;
+    }
+
+    public UsuarioLab getUser() {
+        return user;
+    }
+
+    public void setUser(UsuarioLab user) {
+        user = user;
     }
 }
