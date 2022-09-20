@@ -2,6 +2,7 @@ package com.sena.LabData.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -15,9 +16,9 @@ public class Caso {
     @NotBlank
     private String numeroOrden;
 
-    //@Column
-    //@NotBlank
-    //private Date fechaIngreso;
+    @Column
+    @NotBlank
+    private String fechaIngreso;
 
     @Column
     @NotBlank
@@ -37,12 +38,11 @@ public class Caso {
     @JoinColumn(name = "user_id")
     private  UsuarioLab user;
 
-
-    public Caso(Integer id, String numeroOrden, String nombrePte, String idPte,
+    public Caso(Integer id, String numeroOrden,String fechaIngreso, String nombrePte, String idPte,
                 Boolean registro, Boolean antagonista, UsuarioLab user) {
         this.id = id;
         this.numeroOrden = numeroOrden;
-        //this.fechaIngreso = fechaIngreso;
+        this.fechaIngreso = fechaIngreso;
         this.nombrePte = nombrePte;
         this.idPte = idPte;
         this.registro = registro;
@@ -70,13 +70,13 @@ public class Caso {
         this.numeroOrden = numeroOrden;
     }
 
-    //public Date getFechaIngreso() {
-      //  return fechaIngreso;
-    //}
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
 
-    //public void setFechaIngreso(Date fechaIngreso) {
-    //    this.fechaIngreso = fechaIngreso;
-    //}
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
 
     public String getNombrePte() {
         return nombrePte;

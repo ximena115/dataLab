@@ -15,7 +15,6 @@ import java.util.Optional;
 @Transactional
 public class UsuarioLabService {
 
-
     @Autowired
     UsuarioLabRepository usuarioLabRepository;
 

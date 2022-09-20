@@ -29,11 +29,6 @@ public class Etapa {
     @NotBlank
     private String fechaSalida;
 
-    /*@OneToMany
-    @JoinColumn(name = "id_etapa")
-    private List<Etapa> etapas;*/
-
-
     public Etapa() {
     }
 

@@ -20,9 +20,6 @@ public class ClinicaDTO {
 
     private String auxiliar;
 
-    /*@ManyToMany
-    private List<Odontologo> odontologos;*/
-
     public Integer getId() {
         return id;
     }

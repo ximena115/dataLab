@@ -30,11 +30,6 @@ public class Odontologo {
     @NotBlank
     private String especialidad;
 
-
-    /*@OneToMany
-    @JoinColumn(name = "id_caso")
-    private List<Caso> casos;*/
-
     public Odontologo() {
     }
 

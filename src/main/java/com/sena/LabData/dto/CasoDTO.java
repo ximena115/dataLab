@@ -1,9 +1,7 @@
 package com.sena.LabData.dto;
 
-
+import com.sena.LabData.entity.Odontologo;
 import com.sena.LabData.entity.UsuarioLab;
-
-import java.util.Date;
 
 public class CasoDTO {
 
@@ -14,7 +12,7 @@ public class CasoDTO {
     private String numeroOrden;
 
 
-    //private Date fechaIngreso;
+    private String fechaIngreso;
 
 
     private String nombrePte;
@@ -46,13 +44,13 @@ public class CasoDTO {
         this.numeroOrden = numeroOrden;
     }
 
-    //public Date getFechaIngreso() {
-    //    return fechaIngreso;
-    //}
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
 
-    //public void setFechaIngreso(Date fechaIngreso) {
-    //    this.fechaIngreso = fechaIngreso;
-    //}
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
 
     public String getNombrePte() {
         return nombrePte;

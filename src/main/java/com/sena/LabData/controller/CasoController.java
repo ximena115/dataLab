@@ -3,6 +3,7 @@ package com.sena.LabData.controller;
 import com.sena.LabData.dto.CasoDTO;
 import com.sena.LabData.dto.Mensaje;
 import com.sena.LabData.entity.Caso;
+import com.sena.LabData.entity.Odontologo;
 import com.sena.LabData.entity.UsuarioLab;
 import com.sena.LabData.service.CasoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,7 @@ public class CasoController {
 
         Caso caso = new Caso(casoDTO.getId(),
                 casoDTO.getNombrePte(),
+                casoDTO.getFechaIngreso(),
                 casoDTO.getNumeroOrden(),
                 casoDTO.getIdPte(),
                 casoDTO.getRegistro(),
@@ -76,6 +78,7 @@ public class CasoController {
         caso.setNombrePte(casoDTO.getNombrePte());
         caso.setIdPte(casoDTO.getIdPte());
         caso.setNumeroOrden(casoDTO.getNumeroOrden());
+        caso.setFechaIngreso(casoDTO.getFechaIngreso());
         caso.setAntagonista(casoDTO.getAntagonista());
         caso.setRegistro(casoDTO.getRegistro());
 

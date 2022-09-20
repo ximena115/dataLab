@@ -42,9 +42,6 @@ public class Clinica {
         this.auxiliar = auxiliar;
     }
 
-    /*@ManyToMany
-    private List<Odontologo> odontologos;*/
-
     public Integer getId() {
         return id;
     }
