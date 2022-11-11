@@ -3,10 +3,13 @@ package com.sena.LabData.controller;
 import com.sena.LabData.dto.CasoDTO;
 import com.sena.LabData.dto.Mensaje;
 import com.sena.LabData.entity.Caso;
+import com.sena.LabData.entity.Odontologo;
+import com.sena.LabData.entity.UsuarioLab;
 import com.sena.LabData.service.CasoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +26,6 @@ public class CasoController {
 
     @GetMapping("/listaCasos")
     public ResponseEntity<List<Caso>> listaCaso(){
-
         List<Caso> casos = casoService.listaCaso();
         return new ResponseEntity<List<Caso>>(casos, HttpStatus.OK);
     }
@@ -39,15 +41,17 @@ public class CasoController {
     }
 
     @PostMapping("/crearCaso")
-    public ResponseEntity<?> creaCaso(@RequestBody CasoDTO casoDTO){
-
+    public ResponseEntity<?> creaCaso(@RequestBody CasoDTO casoDTO, @AuthenticationPrincipal UsuarioLab usuarioLab){
+        System.out.println (usuarioLab.getId());
 
         Caso caso = new Caso(casoDTO.getId(),
                 casoDTO.getNombrePte(),
+                casoDTO.getFechaIngreso(),
                 casoDTO.getNumeroOrden(),
                 casoDTO.getIdPte(),
                 casoDTO.getRegistro(),
-                casoDTO.getAntagonista());
+                casoDTO.getAntagonista(),
+                usuarioLab);
 
         casoService.saveCaso(caso);
         return new ResponseEntity(new Mensaje("Caso creado"), HttpStatus.OK);
@@ -74,6 +78,7 @@ public class CasoController {
         caso.setNombrePte(casoDTO.getNombrePte());
         caso.setIdPte(casoDTO.getIdPte());
         caso.setNumeroOrden(casoDTO.getNumeroOrden());
+        caso.setFechaIngreso(casoDTO.getFechaIngreso());
         caso.setAntagonista(casoDTO.getAntagonista());
         caso.setRegistro(casoDTO.getRegistro());
 

@@ -19,10 +19,6 @@ public class TipoTrabajo {
     @NotBlank
     private String area;
 
-   /* @OneToMany
-    @JoinColumn(name = "id_caso")
-    private List<Caso> casos;*/
-
     public TipoTrabajo() {
     }
 

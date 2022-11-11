@@ -42,7 +42,7 @@ public class UsuarioLabController {
     }
 
     @PostMapping("/crearUsuario")
-    public ResponseEntity<?> creaUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+    public ResponseEntity<?> creaUsuario( @RequestBody UsuarioDTO usuarioDTO) {
 
 
         UsuarioLab usuarioLab = new UsuarioLab(usuarioDTO.getId(),
@@ -50,10 +50,10 @@ public class UsuarioLabController {
                 usuarioDTO.getApellido(),
                 usuarioDTO.getDireccion(),
                 usuarioDTO.getMovil(),
-                usuarioDTO.getContrasena(),
+                usuarioDTO.getPassword(),
                 usuarioDTO.getCorreo(),
                 usuarioDTO.getTipoUsuario(),
-                usuarioDTO.getUsuario());
+                usuarioDTO.getUsername());
 
         usuarioLabService.saveUsuario(usuarioLab);
         return new ResponseEntity(new Mensaje("Usuario creado"), HttpStatus.OK);
@@ -81,10 +81,10 @@ public class UsuarioLabController {
         usuarioLab.setNombre(usuarioDTO.getNombre());
         usuarioLab.setDireccion(usuarioDTO.getDireccion());
         usuarioLab.setMovil(usuarioDTO.getMovil());
-        usuarioLab.setContrasena(usuarioDTO.getContrasena());
+        usuarioLab.setPassword(usuarioDTO.getPassword());
         usuarioLab.setCorreo(usuarioDTO.getCorreo());
         usuarioLab.setTipoUsuario(usuarioDTO.getTipoUsuario());
-        usuarioLab.setUsuario(usuarioDTO.getUsuario());
+        usuarioLab.setUsername(usuarioDTO.getUsername());
 
         usuarioLabService.saveUsuario(usuarioLab);
 
